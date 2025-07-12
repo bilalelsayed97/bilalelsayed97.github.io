@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <title>Redirecting...</title>
+          <script>
+                    var androidUrl = "https://play.google.com/store/apps/details?id=com.tanzil.qurankareem";
+                    var iosUrl = "https://apps.apple.com/app/com.tanzil.qurankareem";
+
+                    function redirectToStore() {
+                              var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+                              if (/android/i.test(userAgent)) {
+                                        window.location.href = androidUrl;
+                              } else if (/iPad|iPhone|iPod|Macintosh/.test(userAgent) && !window.MSStream) {
+                                        window.location.href = iosUrl;
+                              } else {
+                                        // If not Android, iOS, or Mac, show a message or redirect somewhere else
+                                        document.getElementById('message').style.display = 'block';
+                              }
+                    }
+                    window.onload = redirectToStore;
+          </script>
+</head>
+
+<body>
+          <div id="message" style="display:none;">
+                    <p>It looks like you're not on a supported device. Please visit this link on your Android, iOS, or
+                              Mac device.</p>
+          </div>
+</body>
+
+</html>
